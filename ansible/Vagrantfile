@@ -26,6 +26,9 @@ Vagrant.configure(2) do |config|
 
 
     master.vm.provision "shell", privileged: false, inline: <<-SHELL
+      sudo export http_proxy=http://sngidc-dmz-wsa-1.cisco.com:80/
+      sudo export https_proxy=http://sngidc-dmz-wsa-1.cisco.com:80/
+      sudo export ftp_proxy=http://sngidc-dmz-wsa-1.cisco.com:80/
       sudo apt-get -y install python-pip
       sudo apt-get -y install build-essential libssl-dev libffi-dev python3-dev
       sudo pip install 'ansible<2.3'
