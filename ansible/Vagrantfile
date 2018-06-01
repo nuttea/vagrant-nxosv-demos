@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-nxos_box_name = "cisco/n9kv"
+nxos_box_name = "nxosv/7-0-3-i5-2"
 
 Vagrant.configure(2) do |config|
   config.vm.define "master" do |master|
