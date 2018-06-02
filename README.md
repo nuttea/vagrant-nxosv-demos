@@ -3,16 +3,26 @@ This repository contains a variety of demos showing how automation tools can be 
 ## Requirements
 All of the demos assume the following requirements:
 
-* Vagrant (tested on 1.8.7, but watch out for this issue if you're on MacOS Sierra https://github.com/mitchellh/vagrant/issues/5016#issuecomment-260065012)
-* VirtualBox (tested with 5.0.16)
-* NX-OSv box added to your vagrant: 
-    * Download the .VMDK file from [CCO]("https://software.cisco.com/download/release.html?mdfid=286312239&flowid=81422&softwareid=282088129&release=7.0(3)I5(1)&relind=AVAILABLE&rellifecycle=&reltype=latest")
-    * Follow the instructions [here](http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/7-x/nx-osv/configuration/guide/b_NX-OSv_9000/b_NX-OSv_chapter_01.html#reference_BAD5B5587C6B45AAB2FA462759DCCBD0) (the sections titled "Creating a VM in a VirtualBox Environment" through "Set Up SSH Passwordless Connection to VM").
-    * Export to a .box file: `vagrant package --base n9kv --output n9kv.box`
-    * Add to vagrant: `vagrant box add --name nxosv/7-0-3-i5-1 n9kv.box`
-    * Verify: Run `vagrant box list` and look for `nxosv/7-0-3-i5-1                  (virtualbox, 0)`
+* Vagrant (tested on 2.1.1)
+* VirtualBox (tested with 5.1.38)
+* NX-OSv box added to your vagrant:
+    * Download the .box file from [CCO]("https://software.cisco.com/download/home/286312239/type/282088129/release/7.0%25283%2529I5%25282%2529")
+    * Add to vagrant: `vagrant box add --name nxosv/7-0-3-i5-2 nxosv-final.7.0.3.I5.2.box`
+    * Verify: Run `vagrant box list` and look for `nxosv/7-0-3-i5-2                  (virtualbox, 0)`
 
 ## Available Demos
 The following demos are currently available in this repository:
 
-* **Puppet**: Sets up a Puppet master server and two virtual Nexus 9000 switches, each with the Puppet agent installed and configured to use the master. 
+* **Ansible**: Sets up a Ansible master server and two virtual Nexus 9000 switches, each with the nxapi enabled and ready for Ansible master to run ansible playbook.
+* Basic playbook
+    * ssh to ansible master with `vagrant ssh master`
+    * go to ansible directory `cd /vagrant/ansible`
+    * run `ansible-playbook -i hosts sample-playbook.yml`. This will...
+        * set default setting to interface Ethernet1/3 and Ethernet1/4
+        * shutdown Ethernet1/3
+        * set description and mode L3 to Ethernet1/4
+* VXLAN MP-BGP EVPN Spines and Leafs playbook
+    * ssh to ansible master with `vagrant ssh master`
+    * go to ansible directory `cd /vagrant/ansible`
+    * run `ansible-playbook -i hosts site.yml`
+    * This will provisioning Spines and Leafs VXLAN EVPN based on tasks that defined by roles
