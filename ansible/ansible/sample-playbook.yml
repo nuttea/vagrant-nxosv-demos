@@ -7,34 +7,34 @@
   tasks:
     - name: default interfaces
       nxos_interface:
-        interface: {{ item }}
+        interface: ""{{ item }}""
         state: default
+        provider:
+          host: "{{ inventory_hostname }}"
+          transport: "{{ transport }}"
+          username: "{{ username }}"
+          password: "{{ password }}"
       with_items:
         - Ethernet1/4
         - Ethernet1/3
-      provider:
-        host: "{{ inventory_hostname }}"
-        transport: "{{ transport }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
 
     # Ensure an interface is a Layer 3 port and that it has the proper description
     - name: config interface
       nxos_interface:
         interface: "Ethernet1/4"
         description: "'Configured by Ansible' mode=layer3"
-      provider:
-        host: "{{ inventory_hostname }}"
-        transport: "{{ transport }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
+        provider:
+          host: "{{ inventory_hostname }}"
+          transport: "{{ transport }}"
+          username: "{{ username }}"
+          password: "{{ password }}"
 
     # Admin down an interface
     - nxos_interface:
         interface: "Ethernet1/3"
         admin_state: down
-      provider:
-        host: "{{ inventory_hostname }}"
-        transport: "{{ transport }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
+        provider:
+          host: "{{ inventory_hostname }}"
+          transport: "{{ transport }}"
+          username: "{{ username }}"
+          password: "{{ password }}"
