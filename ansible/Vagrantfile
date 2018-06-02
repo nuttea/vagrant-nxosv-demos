@@ -37,7 +37,7 @@ Vagrant.configure(2) do |config|
   config.vm.define "n9kv1" do |n9kv1|
         n9kv1.vm.box = nxos_box_name
         n9kv1.vm.provider "virtualbox" do |vb|
-            vb.memory = "4096"
+  #          vb.memory = "4096"
         end
 
         if Vagrant.has_plugin?("vagrant-cachier")
@@ -94,7 +94,7 @@ Vagrant.configure(2) do |config|
   config.vm.define "n9kv2" do |n9kv2|
         n9kv2.vm.box = nxos_box_name
         n9kv2.vm.provider "virtualbox" do |vb|
-            vb.memory = "4096"
+  #          vb.memory = "4096"
         end
 
         if Vagrant.has_plugin?("vagrant-cachier")
