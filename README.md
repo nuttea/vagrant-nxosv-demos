@@ -1,5 +1,5 @@
 # Cisco NX-OSv Demos
-This repository contains a variety of demos showing how automation tools can be used to manage Open NX-OS. These are based on the virtual Nexus 9000 and use Vagrant for provisioning the demo/test environments.
+This repository contains demos showing how automation tools can be used to manage Open NX-OS. These are based on the virtual Nexus 9000 and use Vagrant for provisioning the demo/test environments.
 ## Requirements
 All of the demos assume the following requirements:
 
