@@ -1,0 +1,6 @@
+vlans:
+  - vlan_id: 3001
+    name: ANSIBLE_STUDENT01_3001
+
+  - vlan_id: 3002
+    name: ANSIBLE_STUDENT02_3002
