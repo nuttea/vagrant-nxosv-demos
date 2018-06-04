@@ -13,10 +13,10 @@
           transport: nxapi
         register: nxos_info
 
-      - name: run show bgp process on remote devices
+      - name: run show ospf process on remote devices
         nxos_command:
-          commands: show bgp process
-        register: nxos_show_bgp_process
+          commands: "show ip ospf | i Process"
+        register: nxos_show_ospf_process
 
       - name: run show vlan on remote devices
         nxos_command:
@@ -26,8 +26,8 @@
       - name: "Hi! Here are my facts."
         debug: msg="{{nxos_info}}"
 
-      - name: "NXOSv show bgp process"
-        debug: msg="{{nxos_show_bgp_process}}"
+      - name: "NXOSv show ospf process"
+        debug: msg="{{nxos_show_ospf_process}}"
 
       - name: "NXOSv show vlan"
         debug: msg="{{nxos_show_vlan}}"
