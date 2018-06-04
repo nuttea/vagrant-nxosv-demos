@@ -1,0 +1,9 @@
+[nxosv_switches:children]
+nxos_leaf
+nxos_spine
+
+[nxos_leaf]
+192.168.1.1
+
+[nxos_spine]
+192.168.1.2

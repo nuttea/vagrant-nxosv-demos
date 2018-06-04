@@ -1,0 +1,8 @@
+- hosts: nxosv_switches
+  connection: local
+  roles:
+    - { role: nxos_common }
+
+#############################
+# Add nxos_leaf role here!  #
+#############################

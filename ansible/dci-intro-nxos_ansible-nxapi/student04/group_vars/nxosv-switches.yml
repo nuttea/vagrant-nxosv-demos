@@ -1,0 +1,3 @@
+feature: bgp
+asn: 104
+template: ./bgp.j2
